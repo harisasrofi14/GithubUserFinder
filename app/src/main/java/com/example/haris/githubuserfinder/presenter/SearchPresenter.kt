@@ -14,10 +14,12 @@ class SearchPresenter(private val view: SearchView, private val apiRespository: 
                       private val gson: Gson){
 
     fun getSearchResult(user:String,page:Int,per_page:Int){
+        view.showLoading()
         GlobalScope.launch (Dispatchers.Main){
             val  data = gson.fromJson(apiRespository.doRequest(GithubApi.getGithubProfiles(user,page,per_page)).await(),
                 SearchResponse::class.java)
             view.showResultList(data.items!!)
+            view.hideLoading()
         }
     }
 }
