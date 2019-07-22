@@ -7,4 +7,5 @@ interface SearchView {
     fun showLoading()
     fun hideLoading()
     fun showResultList(data : List<SearchItem>)
+    fun onErrorGetProfile()
 }
