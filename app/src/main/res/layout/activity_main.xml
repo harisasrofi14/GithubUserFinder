@@ -2,17 +2,18 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent" xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        xmlns:shimmer="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
         <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="horizontal" android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-
                 android:padding="15dp"
                 android:elevation="2dp"
                 android:background="@drawable/seacrview_background"
@@ -38,17 +39,39 @@
                     android:textSize="14sp"
                     android:background="@android:color/transparent"/>
         </LinearLayout>
-    <com.facebook.shimmer.ShimmerFrameLayout
+
+        <RelativeLayout
+            android:id="@+id/wrapper_not_found"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:id="@+id/iv_not_found"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_not_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/iv_not_found"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/no_result"/>
+
+    </RelativeLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer_view_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             shimmer:duration="800">
 
-        <!-- Adding 3 rows of placeholders -->
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
             <include layout="@layout/profile_placeholder_item" />
@@ -72,13 +95,13 @@
             <include layout="@layout/profile_placeholder_item" />
         </LinearLayout>
 
-    </com.facebook.shimmer.ShimmerFrameLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_github_profile"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical">
         </android.support.v7.widget.RecyclerView>
-
-
 
 </LinearLayout>
