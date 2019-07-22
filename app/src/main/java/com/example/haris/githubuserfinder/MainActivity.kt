@@ -10,11 +10,8 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import com.example.haris.githubuserfinder.adapter.RecyclerViewAdapter
-import com.example.haris.githubuserfinder.api.ApiRespository
 import com.example.haris.githubuserfinder.model.SearchItem
-import com.example.haris.githubuserfinder.model.SearchResponse
 import com.example.haris.githubuserfinder.presenter.SearchPresenter
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import com.facebook.shimmer.ShimmerFrameLayout
 
@@ -26,12 +23,9 @@ class MainActivity : AppCompatActivity(),SearchView {
     private  var profiles : MutableList<SearchItem> = mutableListOf()
     private var originItems: MutableList<SearchItem> = mutableListOf()
     private lateinit var presenter: SearchPresenter
-    private val gson = Gson()
-    private val apiRepository = ApiRespository()
     private val searchAdapter = RecyclerViewAdapter(profiles)
     private lateinit var mShimmerViewContainer: ShimmerFrameLayout
     private lateinit var manager: LinearLayoutManager
-
     private lateinit var scrollListener: RecyclerView.OnScrollListener
     internal var currentItems: Int = 0
     internal var totalItems: Int = 0
