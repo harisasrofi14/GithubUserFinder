@@ -8,10 +8,9 @@ import com.example.haris.githubuserfinder.R
 import com.example.haris.githubuserfinder.model.SearchItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_profile.view.*
-import java.util.ArrayList
 
 class RecyclerViewAdapter(private val items:List<SearchItem> ) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
-    private var arrayList: ArrayList<SearchItem>? = null
+
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ViewHolder {
       return ViewHolder(
@@ -28,6 +27,7 @@ class RecyclerViewAdapter(private val items:List<SearchItem> ) : RecyclerView.Ad
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
        holder.bindResult(items[position])
     }
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val tvName = view.tv_username
         private val ivProfile = view.iv_profile
